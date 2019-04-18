@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  jpa:
+    database: MYSQL
+    show-sql: true
+mybatis:
+  typeAliasesPackage: com.wuaipic.model
+  mapperLocations: classpath:mapper/*.xml
+---
+server:
+  port: 8081
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.132.73.177:3306/wuaipic?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: password
+---
+
+server:
+  port: 8082
+spring:
+  profiles: prod

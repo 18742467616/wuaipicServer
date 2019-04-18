@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuaipic.mapper.PictureEntityMapper">
+  <resultMap id="BaseResultMap" type="com.wuaipic.model.PictureEntity">
+    <id column="pic_id" jdbcType="VARCHAR" property="picId" />
+    <result column="pic_source" jdbcType="VARCHAR" property="picSource" />
+    <result column="pic_path" jdbcType="VARCHAR" property="picPath" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="pic_status" jdbcType="VARCHAR" property="picStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pic_id, pic_source, pic_path, create_time, update_time, pic_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from picture_t
+    where pic_id = #{picId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from picture_t
+    where pic_id = #{picId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.wuaipic.model.PictureEntity">
+    insert into picture_t (pic_id, pic_source, pic_path, 
+      create_time, update_time, pic_status
+      )
+    values (#{picId,jdbcType=VARCHAR}, #{picSource,jdbcType=VARCHAR}, #{picPath,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{picStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wuaipic.model.PictureEntity">
+    insert into picture_t
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="picId != null">
+        pic_id,
+      </if>
+      <if test="picSource != null">
+        pic_source,
+      </if>
+      <if test="picPath != null">
+        pic_path,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="picStatus != null">
+        pic_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="picId != null">
+        #{picId,jdbcType=VARCHAR},
+      </if>
+      <if test="picSource != null">
+        #{picSource,jdbcType=VARCHAR},
+      </if>
+      <if test="picPath != null">
+        #{picPath,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="picStatus != null">
+        #{picStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wuaipic.model.PictureEntity">
+    update picture_t
+    <set>
+      <if test="picSource != null">
+        pic_source = #{picSource,jdbcType=VARCHAR},
+      </if>
+      <if test="picPath != null">
+        pic_path = #{picPath,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="picStatus != null">
+        pic_status = #{picStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pic_id = #{picId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wuaipic.model.PictureEntity">
+    update picture_t
+    set pic_source = #{picSource,jdbcType=VARCHAR},
+      pic_path = #{picPath,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      pic_status = #{picStatus,jdbcType=VARCHAR}
+    where pic_id = #{picId,jdbcType=VARCHAR}
+  </update>
+</mapper>
