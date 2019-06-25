@@ -12,6 +12,10 @@ mybatis:
 ---
 server:
   port: 8081
+# 设置session过期时间
+#  servlet:
+#    session:
+#      timeout: 1m
 spring:
   profiles: dev
   datasource:

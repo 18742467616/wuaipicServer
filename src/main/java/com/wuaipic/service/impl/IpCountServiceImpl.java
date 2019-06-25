@@ -34,7 +34,7 @@ public class IpCountServiceImpl implements IpCountService {
         i = ipCountEntityMapper.insert(ipCountEntry);
         if(i==1){
             int a = ipCountEntityMapper.countAccess();
-            return ResultEntity.createBySuccessDataAndMessage(1,"欢迎您ip:"+str+",当前共有"+a+"人访问了本网站！");
+            return ResultEntity.createBySuccessDataAndMessage(1,String.valueOf(a));
         }
 
         return ResultEntity.createByErrorMessage("失败");
