@@ -1,7 +1,13 @@
 package com.wuaipic.mapper;
 
 import com.wuaipic.model.BlogEntity;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Mapper
+@Repository
 public interface BlogEntityMapper {
     int deleteByPrimaryKey(String blogId);
 
@@ -13,5 +19,9 @@ public interface BlogEntityMapper {
 
     int updateByPrimaryKeySelective(BlogEntity record);
 
+    int updateByPrimaryKeyWithBLOBs(BlogEntity record);
+
     int updateByPrimaryKey(BlogEntity record);
+
+    List<BlogEntity> selectAllBlog();
 }

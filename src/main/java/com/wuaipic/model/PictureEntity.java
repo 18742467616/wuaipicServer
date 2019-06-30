@@ -5,15 +5,19 @@ import java.util.Date;
 public class PictureEntity {
     private String picId;
 
-    private String picSource;
+    private String picSname;
 
     private String picPath;
+
+    private String picStatus;
+
+    private String outerId;
+
+    private String picType;
 
     private Date createTime;
 
     private Date updateTime;
-
-    private String picStatus;
 
     public String getPicId() {
         return picId;
@@ -23,12 +27,12 @@ public class PictureEntity {
         this.picId = picId == null ? null : picId.trim();
     }
 
-    public String getPicSource() {
-        return picSource;
+    public String getPicSname() {
+        return picSname;
     }
 
-    public void setPicSource(String picSource) {
-        this.picSource = picSource == null ? null : picSource.trim();
+    public void setPicSname(String picSname) {
+        this.picSname = picSname == null ? null : picSname.trim();
     }
 
     public String getPicPath() {
@@ -37,6 +41,30 @@ public class PictureEntity {
 
     public void setPicPath(String picPath) {
         this.picPath = picPath == null ? null : picPath.trim();
+    }
+
+    public String getPicStatus() {
+        return picStatus;
+    }
+
+    public void setPicStatus(String picStatus) {
+        this.picStatus = picStatus == null ? null : picStatus.trim();
+    }
+
+    public String getOuterId() {
+        return outerId;
+    }
+
+    public void setOuterId(String outerId) {
+        this.outerId = outerId == null ? null : outerId.trim();
+    }
+
+    public String getPicType() {
+        return picType;
+    }
+
+    public void setPicType(String picType) {
+        this.picType = picType == null ? null : picType.trim();
     }
 
     public Date getCreateTime() {
@@ -53,13 +81,5 @@ public class PictureEntity {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getPicStatus() {
-        return picStatus;
-    }
-
-    public void setPicStatus(String picStatus) {
-        this.picStatus = picStatus == null ? null : picStatus.trim();
     }
 }

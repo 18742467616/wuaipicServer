@@ -1,21 +1,23 @@
 package com.wuaipic.model;
 
+import java.util.Date;
+
 public class BlogEntity {
     private String blogId;
 
-    private String blogTitle;
+    private String blogTitel;
 
-    private String blogSubtitle;
-
-    private String blogContent;
-
-    private String createTime;
-
-    private String updateTime;
+    private String blogLabel;
 
     private String beTop;
 
     private String blogStatus;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+    private String blogContent;
 
     public String getBlogId() {
         return blogId;
@@ -25,44 +27,20 @@ public class BlogEntity {
         this.blogId = blogId == null ? null : blogId.trim();
     }
 
-    public String getBlogTitle() {
-        return blogTitle;
+    public String getBlogTitel() {
+        return blogTitel;
     }
 
-    public void setBlogTitle(String blogTitle) {
-        this.blogTitle = blogTitle == null ? null : blogTitle.trim();
+    public void setBlogTitel(String blogTitel) {
+        this.blogTitel = blogTitel == null ? null : blogTitel.trim();
     }
 
-    public String getBlogSubtitle() {
-        return blogSubtitle;
+    public String getBlogLabel() {
+        return blogLabel;
     }
 
-    public void setBlogSubtitle(String blogSubtitle) {
-        this.blogSubtitle = blogSubtitle == null ? null : blogSubtitle.trim();
-    }
-
-    public String getBlogContent() {
-        return blogContent;
-    }
-
-    public void setBlogContent(String blogContent) {
-        this.blogContent = blogContent == null ? null : blogContent.trim();
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime == null ? null : createTime.trim();
-    }
-
-    public String getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime == null ? null : updateTime.trim();
+    public void setBlogLabel(String blogLabel) {
+        this.blogLabel = blogLabel == null ? null : blogLabel.trim();
     }
 
     public String getBeTop() {
@@ -79,5 +57,29 @@ public class BlogEntity {
 
     public void setBlogStatus(String blogStatus) {
         this.blogStatus = blogStatus == null ? null : blogStatus.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getBlogContent() {
+        return blogContent;
+    }
+
+    public void setBlogContent(String blogContent) {
+        this.blogContent = blogContent == null ? null : blogContent.trim();
     }
 }
