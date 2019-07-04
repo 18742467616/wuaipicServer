@@ -6,8 +6,8 @@ spring:
   jpa:
     database: MYSQL
     show-sql: true
-  thymeleaf:
-    cache: false
+  mvc:
+    static-path-pattern: classpath:/static/**
 mybatis:
   typeAliasesPackage: com.wuaipic.model
   mapperLocations: classpath:mapper/*.xml

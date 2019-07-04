@@ -8,7 +8,8 @@ import java.io.IOException;
 public class FileUtil {
 
     public static String FileUpload(MultipartFile file){
-        String path="/usr/local/apache2/htdocs/aimImages/";
+//        String path="/usr/local/apache2/htdocs/aimImages/";
+        String path="D://hello//";
         String fileName = file.getOriginalFilename();//获取到上传文件的名字
         String suffix = fileName.substring(fileName.lastIndexOf('.'));//获取文件后缀
         String newfileName = UUIDUtil.getOneUUID()+suffix;//随机生成文件名
