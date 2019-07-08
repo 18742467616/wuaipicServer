@@ -7,7 +7,10 @@ spring:
     database: MYSQL
     show-sql: true
   mvc:
-    static-path-pattern: classpath:/static/**
+    static-path-pattern: classpath:/templates/**
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 mybatis:
   typeAliasesPackage: com.wuaipic.model
   mapperLocations: classpath:mapper/*.xml
@@ -25,6 +28,22 @@ spring:
     url: jdbc:mysql://101.132.73.177:3306/wuaipic?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
     username: root
     password: password
+    # REDIS (RedisProperties)
+    # Redis数据库索引（默认为0）
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    lettuce:
+      shutdown-timeout: 0
+
+
 ---
 
 server:
