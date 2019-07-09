@@ -11,6 +11,12 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+#    文件上传大小控制
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
 mybatis:
   typeAliasesPackage: com.wuaipic.model
   mapperLocations: classpath:mapper/*.xml
