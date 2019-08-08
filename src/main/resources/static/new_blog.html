@@ -64,7 +64,17 @@
             , layer = layui.layer
             , layedit = layui.layedit
             , laydate = layui.laydate;
-           index = layedit.build('comment');
+              layedit.set({
+            uploadImage: {
+                url: 'http://localhost:8081/file' //接口url
+                ,type: 'post' //默认post
+            }
+        });
+
+           index = layedit.build('comment',{
+               height:400
+           }
+           );
 
         //日期
         laydate.render({
@@ -75,16 +85,46 @@
         });
 
 
+        // //监听提交
+        // form.on('submit(submit)', function (data) {
+        //     // data.field.file = imageUrl;
+        //      data.field.comment = layedit.getContent(index);
+        //      // debugger
+        //     layer.alert(JSON.stringify(data.field), {
+        //         title: '最终的提交信息'
+        //     })
+        //     return false;
+        // });
+
         //监听提交
         form.on('submit(submit)', function (data) {
             // data.field.file = imageUrl;
              data.field.comment = layedit.getContent(index);
              // debugger
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            })
-            return false;
+            console.log(data.field);
+            alert("开始保存")
+            $.ajax({
+                url:'http://localhost:8081/insertBlog',
+                method:'post',
+                data:data,
+                async: false,
+                dataType:'JSON',
+                contentType: "application/json",
+                success:function(res){
+                    console.log(res);
+                    if(res.data){
+                       alert("成功");
+                    }
+                    else
+                        alert(res.msg);
+                },
+                error:function (data) {
+
+                }
+            }) ;
+
         });
+
 
 
 

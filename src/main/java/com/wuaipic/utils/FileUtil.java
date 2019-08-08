@@ -1,15 +1,17 @@
 package com.wuaipic.utils;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 
+@Component
 public class FileUtil {
-
     public static String FileUpload(MultipartFile file){
 //        String path="/usr/local/apache2/htdocs/aimImages/";
         String path="D://hello//";
+
         String fileName = file.getOriginalFilename();//获取到上传文件的名字
         String suffix = fileName.substring(fileName.lastIndexOf('.'));//获取文件后缀
         String newfileName = UUIDUtil.getOneUUID()+suffix;//随机生成文件名

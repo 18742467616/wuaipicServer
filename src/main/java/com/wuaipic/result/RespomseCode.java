@@ -7,13 +7,13 @@ package com.wuaipic.result;
  */
 public enum RespomseCode {
     //操作成功
-    SUCCESS("200", "操作成功"),
+    SUCCESS("0", "操作成功"),
     //出现错误
-    ERROR("201", "出现错误"),
+    ERROR("1", "出现错误"),
     //未登录
-    NEED_LOGIN("202", "未登录"),
+    NEED_LOGIN("2", "未登录"),
     //参数异常
-    ILLEGAL_ARGUMENT("203", "参数异常");
+    ILLEGAL_ARGUMENT("3", "参数异常");
 
     private final String code;
     private final String desc;

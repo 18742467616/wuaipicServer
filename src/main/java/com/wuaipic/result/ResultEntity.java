@@ -23,7 +23,7 @@ public class ResultEntity implements Serializable {
     /**
      * 状态消息
      */
-    private String message;
+    private String msg;
 
     private ResultEntity(String code) {
         this.code = code;
@@ -36,13 +36,13 @@ public class ResultEntity implements Serializable {
 
     private ResultEntity(String code, String message, Object data) {
         this.code = code;
-        this.message = message;
+        this.msg = message;
         this.data = data;
     }
 
     private ResultEntity(String code, String message) {
         this.code = code;
-        this.message = message;
+        this.msg = message;
     }
 
     /**
