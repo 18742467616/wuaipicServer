@@ -28,6 +28,7 @@ public class WebConfigurer implements WebMvcConfigurer {
                 excludePathPatterns(
                         "/login",
                         "/toLogin",
+                        "/insertPicture",//用过删除
                         "/",
                         "/login.html",
                         "/static/layui/**",
