@@ -3,7 +3,7 @@
 <mapper namespace="com.wuaipic.mapper.BlogEntityMapper">
   <resultMap id="BaseResultMap" type="com.wuaipic.model.BlogEntity">
     <id column="blog_id" jdbcType="VARCHAR" property="blogId" />
-    <result column="blog_titel" jdbcType="VARCHAR" property="blogTitel" />
+    <result column="blog_title" jdbcType="VARCHAR" property="blogTitle" />
     <result column="blog_label" jdbcType="VARCHAR" property="blogLabel" />
     <result column="be_top" jdbcType="VARCHAR" property="beTop" />
     <result column="blog_status" jdbcType="VARCHAR" property="blogStatus" />
@@ -14,7 +14,7 @@
     <result column="blog_content" jdbcType="LONGVARCHAR" property="blogContent" />
   </resultMap>
   <sql id="Base_Column_List">
-    blog_id, blog_titel, blog_label, be_top, blog_status, create_time, update_time
+    blog_id, blog_title, blog_label, be_top, blog_status, create_time, update_time
   </sql>
   <sql id="Blob_Column_List">
     blog_content
@@ -32,10 +32,10 @@
     where blog_id = #{blogId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.wuaipic.model.BlogEntity">
-    insert into blog_t (blog_id, blog_titel, blog_label, 
+    insert into blog_t (blog_id, blog_title, blog_label,
       be_top, blog_status, create_time, 
       update_time, blog_content)
-    values (#{blogId,jdbcType=VARCHAR}, #{blogTitel,jdbcType=VARCHAR}, #{blogLabel,jdbcType=VARCHAR}, 
+    values (#{blogId,jdbcType=VARCHAR}, #{blogTitle,jdbcType=VARCHAR}, #{blogLabel,jdbcType=VARCHAR},
       #{beTop,jdbcType=VARCHAR}, #{blogStatus,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{blogContent,jdbcType=LONGVARCHAR})
   </insert>
@@ -45,8 +45,8 @@
       <if test="blogId != null">
         blog_id,
       </if>
-      <if test="blogTitel != null">
-        blog_titel,
+      <if test="blogTitle != null">
+        blog_title,
       </if>
       <if test="blogLabel != null">
         blog_label,
@@ -71,8 +71,8 @@
       <if test="blogId != null">
         #{blogId,jdbcType=VARCHAR},
       </if>
-      <if test="blogTitel != null">
-        #{blogTitel,jdbcType=VARCHAR},
+      <if test="blogTitle != null">
+        #{blogTitle,jdbcType=VARCHAR},
       </if>
       <if test="blogLabel != null">
         #{blogLabel,jdbcType=VARCHAR},
@@ -97,8 +97,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.wuaipic.model.BlogEntity">
     update blog_t
     <set>
-      <if test="blogTitel != null">
-        blog_titel = #{blogTitel,jdbcType=VARCHAR},
+      <if test="blogTitle != null">
+        blog_title = #{blogTitle,jdbcType=VARCHAR},
       </if>
       <if test="blogLabel != null">
         blog_label = #{blogLabel,jdbcType=VARCHAR},
@@ -123,7 +123,7 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wuaipic.model.BlogEntity">
     update blog_t
-    set blog_titel = #{blogTitel,jdbcType=VARCHAR},
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
       blog_label = #{blogLabel,jdbcType=VARCHAR},
       be_top = #{beTop,jdbcType=VARCHAR},
       blog_status = #{blogStatus,jdbcType=VARCHAR},
@@ -134,7 +134,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.wuaipic.model.BlogEntity">
     update blog_t
-    set blog_titel = #{blogTitel,jdbcType=VARCHAR},
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
       blog_label = #{blogLabel,jdbcType=VARCHAR},
       be_top = #{beTop,jdbcType=VARCHAR},
       blog_status = #{blogStatus,jdbcType=VARCHAR},

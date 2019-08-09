@@ -18,6 +18,7 @@ public class BlogServiceImpl implements BlogService {
     public ResultEntity insertBlog(BlogEntity blogEntity) {
         blogEntity.setBlogId(UUIDUtil.getOneUUID());
         blogEntity.setCreateTime(new Date());
+        blogEntity.setBlogStatus("1");
         ResultEntity resultEntity = ResultEntity.createBySuccessData(blogEntityMapper.insert(blogEntity));
         return resultEntity;
     }

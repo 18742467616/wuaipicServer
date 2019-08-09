@@ -11,7 +11,8 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
-#    文件上传大小控制
+    cache: false
+  #    文件上传大小控制
   servlet:
     multipart:
       enabled: true
@@ -23,6 +24,7 @@ mybatis:
 ---
 server:
   port: 8081
+  max-http-header-size: 4048576
 # 设置session过期时间
 #  servlet:
 #    session:

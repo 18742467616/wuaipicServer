@@ -5,7 +5,7 @@ import java.util.Date;
 public class BlogEntity {
     private String blogId;
 
-    private String blogTitel;
+    private String blogTitle;
 
     private String blogLabel;
 
@@ -27,12 +27,12 @@ public class BlogEntity {
         this.blogId = blogId == null ? null : blogId.trim();
     }
 
-    public String getBlogTitel() {
-        return blogTitel;
+    public String getBlogTitle() {
+        return blogTitle;
     }
 
-    public void setBlogTitel(String blogTitel) {
-        this.blogTitel = blogTitel == null ? null : blogTitel.trim();
+    public void setBlogTitle(String blogTitle) {
+        this.blogTitle = blogTitle == null ? null : blogTitle.trim();
     }
 
     public String getBlogLabel() {

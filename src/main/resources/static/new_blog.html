@@ -19,14 +19,14 @@
         <div class="layui-inline">
             <label class="layui-form-label">文章标题</label>
             <div class="layui-input-block">
-                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题"
+                <input type="text" name="blogTitle" lay-verify="title" autocomplete="off" placeholder="请输入标题"
                        class="layui-input">
             </div>
         </div>
         <div class="layui-inline">
             <label class="layui-form-label">文章分类</label>
             <div class="layui-input-block">
-                <select name="type" lay-filter="type">
+                <select name="blogLabel" lay-filter="type">
                     <option value=""></option>
                     <option value="0">前端</option>
                     <option value="1">后端</option>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <textarea id="comment" name="comment" style="display: none;"></textarea>
+    <textarea id="content" name="blogContent" style="display: none;"></textarea>
 
 
     <div class="layui-upload">
@@ -55,7 +55,7 @@
 <script>
     layui.use('layedit', function () {
         var layedit = layui.layedit;
-        layedit.build('comment'); //建立编辑器
+        layedit.build('content'); //建立编辑器
     });
 
     var index;
@@ -71,7 +71,7 @@
             }
         });
 
-           index = layedit.build('comment',{
+           index = layedit.build('content',{
                height:400
            }
            );
@@ -88,7 +88,7 @@
         // //监听提交
         // form.on('submit(submit)', function (data) {
         //     // data.field.file = imageUrl;
-        //      data.field.comment = layedit.getContent(index);
+        //      data.field.content = layedit.getContent(index);
         //      // debugger
         //     layer.alert(JSON.stringify(data.field), {
         //         title: '最终的提交信息'
@@ -99,16 +99,16 @@
         //监听提交
         form.on('submit(submit)', function (data) {
             // data.field.file = imageUrl;
-             data.field.comment = layedit.getContent(index);
+             data.field.blogContent = layedit.getContent(index);
              // debugger
-            console.log(data.field);
+            var sdata = JSON.stringify(data.field)
+            console.log(sdata);
             alert("开始保存")
             $.ajax({
                 url:'http://localhost:8081/insertBlog',
                 method:'post',
-                data:data,
-                async: false,
-                dataType:'JSON',
+                data:sdata,
+                dataType:'json',
                 contentType: "application/json",
                 success:function(res){
                     console.log(res);

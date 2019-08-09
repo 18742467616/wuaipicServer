@@ -1,7 +1,11 @@
 package com.wuaipic.mapper;
 
 import com.wuaipic.model.PictureEntity;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
+@Mapper
 public interface PictureEntityMapper {
     int deleteByPrimaryKey(String picId);
 

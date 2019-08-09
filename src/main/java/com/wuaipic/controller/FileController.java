@@ -19,11 +19,10 @@ public class FileController {
         @RequestMapping(value = "file",method = RequestMethod.POST,headers = "Accept=application/json")
         public ResultEntity Fileupload(MultipartFile file,HttpServletRequest request){
             Map map = new HashMap();
-            FileUtil.FileUpload(file);
-            map.put("src","http://pic41.nipic.com/20140508/18609517_112216473140_2.jpg");
-            map.put("title","aaaaaa");
+            Map map1 = FileUtil.FileUpload(file);
+            map.put("src","http://localhost:8080/"+map1.get("newName"));
+            map.put("title",map1.get("sourceName"));
             ResultEntity resultEntity =ResultEntity.createBySuccessData(map);
-
             return resultEntity;
 
     }
