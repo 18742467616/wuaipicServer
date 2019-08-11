@@ -29,6 +29,7 @@ public class WebConfigurer implements WebMvcConfigurer {
                         "/login",
                         "/toLogin",
                         "/insertPicture",//用过删除
+                        "/selectAllBlog",//用过删除
                         "/",
                         "/login.html",
                         "/static/layui/**",

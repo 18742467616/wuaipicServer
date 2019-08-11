@@ -23,6 +23,7 @@ public class BlogController {
         return blogService.selectOneBlog(blogId);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "selectAllBlog",method = RequestMethod.GET,headers = "Accept=application/json")
     public ResultEntity selectAllBlog(){
         return blogService.selectAllBlog();
