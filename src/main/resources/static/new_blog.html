@@ -14,7 +14,7 @@
     <![endif]-->
 </head>
 <body >
-<form class="layui-form" action="">
+<form class="layui-form" action="" id="dataForm">
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">文章标题</label>
@@ -112,7 +112,10 @@
                 success:function(res){
                     console.log(res);
                     if(res.data){
-                       alert("成功");
+                      layer.msg(res.msg);
+                        document.getElementById("dataForm").reset();
+                        $("#content").val("");
+
                     }
                     else
                         alert(res.msg);
@@ -121,7 +124,7 @@
 
                 }
             }) ;
-
+            return false;
         });
 
 
